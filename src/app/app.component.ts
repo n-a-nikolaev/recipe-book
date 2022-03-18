@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { UIState } from 'src/state/core';
+import { AppState } from 'src/state/core/app-state-interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'ng-recipe-book';
+  public ui$: Observable<UIState> | null = null;
+
+  constructor(private store: Store<AppState>) {
+    this.ui$ = store.select('ui');
+  }
 }
