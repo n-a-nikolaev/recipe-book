@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "recipebook-e6701": {
+      "hosting": {
+        "ng-recipe-book": [
+          "recipebook-e6701"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "recipebook-e6701"
+  }
+}

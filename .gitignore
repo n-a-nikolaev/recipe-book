@@ -50,3 +50,11 @@ Thumbs.db
 /cypress/videos/
 /cypress/screenshots/
 
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
+# environments
+/environments

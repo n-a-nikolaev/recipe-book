@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ng-recipe-book:build:production",
+            "firebaseProject": "recipebook-e6701",
+            "firebaseHostingSite": "recipebook-e6701"
+          }
         }
       }
     }

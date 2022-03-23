@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { UIState } from 'src/state/core';
 import { AppState } from 'src/state/core/app-state-interface';
 
@@ -10,10 +11,13 @@ import { AppState } from 'src/state/core/app-state-interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ng-recipe-book';
+  public title = 'ng-recipe-book';
+  public item$: Observable<any[]> = of([]);
   public ui$: Observable<UIState> | null = null;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, firestore: Firestore) {
     this.ui$ = store.select('ui');
+    const coll = collection(firestore, 'recipes');
+    this.item$ = collectionData(coll);
   }
 }
