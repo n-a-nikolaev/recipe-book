@@ -3,7 +3,7 @@ import { startLoading, stopLoading } from '../actions';
 import { UIState } from '../core';
 
 export const initialUIState: UIState = {
-  isLoading: false,
+  isLoading: true,
 };
 
 const uiReducer = createReducer(

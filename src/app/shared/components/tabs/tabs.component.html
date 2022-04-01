@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs" *ngIf="tabs.length">
+  <li class="nav-item" *ngFor="let tab of tabs">
+    <span class="nav-link trigger" [ngClass]="{'active': tab.active}"(click)="onTabClickHandler(tab)">{{ tab?.label }}</span>
+  </li>
+</ul>

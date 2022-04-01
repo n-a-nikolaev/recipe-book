@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { rootStore } from 'src/state';
 import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     StoreModule.forRoot(rootStore),
     NgbModule,
+    SharedModule,
     provideFirebaseApp(() => initializeApp({ ...environment.firebase })),
     provideFirestore(() => getFirestore()),
   ],

@@ -2,6 +2,10 @@
 body {
   min-height: 75rem;
   padding-top: 4.5rem;
+
+  &.hide-overflow {
+    overflow: hidden;
+  }
 }
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";

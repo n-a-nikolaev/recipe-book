@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
@@ -15,9 +15,10 @@ export class AppComponent {
   public item$: Observable<any[]> = of([]);
   public ui$: Observable<UIState> | null = null;
 
-  constructor(private store: Store<AppState>, firestore: Firestore) {
+  constructor(store: Store<AppState>, firestore: Firestore, private renderer: Renderer2) {
     this.ui$ = store.select('ui');
     const coll = collection(firestore, 'recipes');
     this.item$ = collectionData(coll);
+    this.renderer.addClass(document.body, 'hide-overflow');
   }
 }

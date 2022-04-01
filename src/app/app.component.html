@@ -1,3 +1,7 @@
+<ng-container *ngIf="(ui$ | async)?.isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">Fixed navbar</a>
   <button
@@ -42,6 +46,7 @@
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">
         Title of a longer featured blog post
+        <pre>{{ ui$ | async | json }}</pre>
       </h1>
       <p class="lead my-3">
         Multiple lines of text that form the lede, informing new readers quickly
