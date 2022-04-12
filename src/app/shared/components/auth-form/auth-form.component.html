@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+      <h3 class="mb-3">{{ title }}</h3>
+      <form [formGroup]="authForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email Address"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">
+            {{ buttonLabel }}
+          </button>
+        </div>
+        <div class="mb-3">
+          <ng-content select="[redirectBlock]"></ng-content>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

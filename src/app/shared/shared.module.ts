@@ -4,12 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PasswordStrengthComponent } from './components/password-strength/password-strength.component';
-import { ShowAuthedDirective } from './directives';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { TagListComponent } from './components/tag-list/tag-list.component';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { ShowForAuthenticatedDirective } from './directives';
+import { ToastComponent } from './components/toast/toast.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -18,15 +21,18 @@ import { TagListComponent } from './components/tag-list/tag-list.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NgbModule
   ],
   declarations: [
     PasswordStrengthComponent,
-    ShowAuthedDirective,
+    ShowForAuthenticatedDirective,
     TabsComponent,
     BannerComponent,
     SpinnerComponent,
     PaginationComponent,
     TagListComponent,
+    ToastComponent,
+    AuthFormComponent,
   ],
   exports: [
     CommonModule,
@@ -35,12 +41,14 @@ import { TagListComponent } from './components/tag-list/tag-list.component';
     HttpClientModule,
     RouterModule,
     PasswordStrengthComponent,
-    ShowAuthedDirective,
+    ShowForAuthenticatedDirective,
     TabsComponent,
     BannerComponent,
     PaginationComponent,
     SpinnerComponent,
     TagListComponent,
+    AuthFormComponent,
+    ToastComponent,
   ],
 })
 export class SharedModule {}

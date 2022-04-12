@@ -1,3 +1,5 @@
+export * from './auth-payload.interface';
+export * from './auth-response.interface';
 export * from './comment.interface';
 export * from './cooking-directions.interface';
 export * from './cooking-time.interface';

@@ -1,3 +1,9 @@
-.btn-group button + button {
+@import "./app-variables.scss";
+
+.navbar button + button {
   margin-left: 10px;
+}
+
+.main {
+  min-height: calc(100vh - $header-height);
 }

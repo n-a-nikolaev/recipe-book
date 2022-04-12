@@ -1,0 +1,11 @@
+@import "../../../app-variables.scss";
+
+:host {
+  z-index: $zIndex-toast;
+}
+
+.red {
+  background-color: red;
+  padding: 5px;
+}
+
