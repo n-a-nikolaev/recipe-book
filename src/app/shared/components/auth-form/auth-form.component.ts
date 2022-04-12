@@ -10,9 +10,6 @@ import { AuthFormType } from 'src/app/core/enums/auth-form-type.enum';
 })
 export class AuthFormComponent implements OnInit {
   @Input()
-  public title!: string;
-
-  @Input()
   public type!: AuthFormType;
 
   @Output()
@@ -24,12 +21,26 @@ export class AuthFormComponent implements OnInit {
     return this.type === AuthFormType.Login ? 'Sign In' : 'Sign Up';
   }
 
+  public get isEmailInvalid(): boolean {
+    return (
+      this.authForm.controls.email.touched &&
+      this.authForm.controls.email.errors !== null
+    );
+  }
+
+  public get isPasswordInvalid(): boolean {
+    return (
+      this.authForm.controls.password.touched &&
+      this.authForm.controls.password.errors !== null
+    );
+  }
+
   constructor() {}
 
   public ngOnInit(): void {
     this.authForm = new FormGroup({
       email: new FormControl('', {
-        validators: [Validators.required],
+        validators: [Validators.required, Validators.email],
       }),
       password: new FormControl('', {
         validators: [Validators.required, Validators.minLength(6)],

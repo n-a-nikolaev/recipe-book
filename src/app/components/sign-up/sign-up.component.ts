@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService, NotificationService } from '@shared/services';
 import { AuthPayload, AuthResponse } from '@core/interfaces';
@@ -10,8 +10,6 @@ import { AuthFormType } from 'src/app/core/enums/auth-form-type.enum';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-  public readonly title: string = 'Sign Up';
-
   public readonly type: AuthFormType = AuthFormType.Register;
 
   constructor(

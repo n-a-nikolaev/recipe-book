@@ -1,4 +1,6 @@
-<app-auth-form [title]="title" (onFormSubmission)="onSubmission($event)">
+<h3 class="text-center display-4 my-5">Sign In</h3>
+
+<app-auth-form [type]="type" (onFormSubmission)="onSubmission($event)">
   <div class="text-center" redirectBlock>
     <p>Don't have an account?</p>
     <button type="button" routerLink="/register" class="btn btn-secondary">

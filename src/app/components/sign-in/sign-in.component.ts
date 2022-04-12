@@ -10,9 +10,7 @@ import { AuthFormType } from 'src/app/core/enums/auth-form-type.enum';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  public readonly title: string = 'Sign In';
-
-  public readonly type: AuthFormType = AuthFormType.Register;
+  public readonly type: AuthFormType = AuthFormType.Login;
 
   constructor(
     private authService: AuthService,

@@ -1,28 +1,74 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-      <h3 class="mb-3">{{ title }}</h3>
       <form [formGroup]="authForm" (ngSubmit)="submit()">
         <div class="mb-3">
           <label>Email</label>
           <input
             type="email"
-            class="form-control"
+            class="form-control form-control-lg"
             placeholder="Email Address"
             formControlName="email"
+            [ngClass]="{ 'is-invalid': isEmailInvalid }"
           />
+          <p
+            class="text-danger"
+            *ngIf="
+              authForm.controls.email.touched &&
+              authForm.controls.email.errors?.required
+            "
+          >
+            This field is required
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              authForm.controls.email.touched &&
+              authForm.controls.email.errors?.email
+            "
+          >
+            Please enter valid email address
+          </p>
         </div>
+
+        <!-- PASSWORD INPUT -->
         <div class="mb-3">
           <label>Password</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control form-control-lg"
             placeholder="Password"
             formControlName="password"
+            [ngClass]="{ 'is-invalid': isPasswordInvalid }"
           />
+          <p
+            class="text-danger"
+            *ngIf="
+              authForm.controls.password.touched &&
+              authForm.controls.password.errors?.required
+            "
+          >
+            This field is required
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              authForm.controls.password.touched &&
+              authForm.controls.password.errors?.minlength
+            "
+          >
+            Please enter at least
+            {{ authForm.controls.password.errors?.minlength.requiredLength }}
+            characters. Current
+            {{ authForm.controls.password.errors?.minlength.actualLength }}
+          </p>
         </div>
         <div class="mb-3">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">
+          <button
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            [disabled]="authForm.invalid"
+          >
             {{ buttonLabel }}
           </button>
         </div>
